@@ -20,6 +20,10 @@ namespace Infrastructure.Data
         {
             return await _context.ProductBrands.ToListAsync();
         }
+                public async Task<IReadOnlyList<ProductType>> GetProductTypesAsync()
+        {
+            return await _context.ProductTypes.ToListAsync();
+        }
 
         public async Task<Product> GetProductByIdAsync(int id)
         {
@@ -39,9 +43,6 @@ namespace Infrastructure.Data
                 .ToListAsync();
         }
 
-        public async Task<IReadOnlyList<ProductType>> GetProductTypesAsync()
-        {
-            return await _context.ProductTypes.ToListAsync();
-        }
+
     }
 }
