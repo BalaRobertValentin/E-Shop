@@ -31,10 +31,13 @@ namespace API
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+                    policy.AllowAnyOrigin().
+                    AllowAnyMethod().
+                    AllowAnyHeader();
                 });
             }
             );
+            
             
         }
 
@@ -48,6 +51,11 @@ namespace API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPIv5 v1"));
             }
+            app.Use((context, next) =>
+            {
+                context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+                return next.Invoke();
+            });
             app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
             app.UseHttpsRedirection();
@@ -55,7 +63,7 @@ namespace API
             app.UseRouting();
             app.UseStaticFiles();
 
-            app.UseCors("CorsPolicy");
+            app.UseCors("AllowAll");
 
             app.UseAuthorization();
 
