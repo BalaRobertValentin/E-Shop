@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-xs-12 col-12">
+
+        <pagination *ngIf="totalCount && totalCount > 0"
+        [boundaryLinks]="true" 
+        [totalItems]="totalCount"
+        [itemsPerPage]="pageSize"
+        (pageChanged)="onPagerChange($event)"
+        previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+        </pagination>
+    </div>
+</div>
