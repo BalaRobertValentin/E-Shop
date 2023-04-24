@@ -44,5 +44,7 @@ namespace Core.Specifications
             AddInclude(x => x.ProductType);
             AddInclude(x => x.ProductBrand);
         }
+
+        
     }
 }
