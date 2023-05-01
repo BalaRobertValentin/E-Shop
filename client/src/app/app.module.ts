@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ShopModule } from './shop/shop.module';
 import { HomeModule } from './home/home.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HomeModule } from './home/home.module';
     HttpClientModule,
     CoreModule,
     ShopModule,
-    HomeModule
+    HomeModule,
+    NgxSpinnerModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
